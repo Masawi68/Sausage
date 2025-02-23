@@ -1,0 +1,377 @@
+html {
+    scroll-behavior: smooth;
+}
+  
+
+body {
+    font-family: 'Agbalumo', sans-serif;
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    scroll-snap-align: start;
+}
+
+.navbar {
+    background-image: linear-gradient(to bottom, #fccb2c, #d87504); /* Vertical gradient */
+}
+
+/* Add transition to nav-link */
+.navbar-nav .nav-item .nav-link {
+    position: relative;
+    padding-bottom: 5px; /* Space for the bar */
+    transition: all 0.3s ease;
+}
+
+/* Create the bar effect */
+.navbar-nav .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 6px; /* Thickness of the bar */
+    background-image: linear-gradient(to right, #FA1601, #045cff); /* Bar color */
+    transition: width 0.3s ease; /* Smooth transition */
+    border-radius: 5px;
+}
+
+/* Expand the bar when the link is hovered */
+.navbar-nav .nav-item .nav-link:hover::after {
+    width: 100%; /* Bar expands on hover */
+}
+
+@media (max-width: 990px) { /* md and sm screens */
+    .navbar-nav .nav-item .nav-link::after {
+        height: 0px; 
+    }
+}
+
+.background-section {
+    position: relative;
+    height: 650px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.background-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/img_sausage12.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scaleX(-1); /* Flips only the background */
+    z-index: -1; /* Places it behind the content */
+}
+
+
+@media (max-width: 990px) {
+    .instock {
+       margin-bottom: 25px;
+   }
+}
+
+@media (min-width: 765px) {
+    .custom-line-height {
+        line-height: 2;
+    }
+}
+
+.car_img {
+    width: 500px; /* Default width */
+}
+
+
+
+@media (max-width: 990px) {
+    .car_img {
+        width: 300px; /* Override for smaller screens */
+        height: 250px;
+   }
+}
+
+
+@media (max-width: 990px) {
+    .custom-line-height {
+        line-height: none;
+    }
+}
+
+
+@media (max-width: 765px) {
+    .img-container {
+        height: 300px; /* Control the height of the div */
+        display: flex; /* Enable flexbox */
+        justify-content: center; /* Center the image horizontally */
+        align-items: center; /* Center the image vertically */
+    }
+
+    .img-container img {
+        max-height: 100%; /* Ensures the image doesn't exceed the height of the container */
+        width: auto; /* Keeps the aspect ratio intact */
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+    }
+}
+
+.background-section1 {
+    background-image: url('/img/img_sausage1.png'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents repeating of the background image */
+    min-height: 75vh; /* Adjust the height as needed, 100vh makes it full viewport height */
+    width: 100%; /* Full width */
+}
+@media (max-width: 990px) {
+    .background-section1 {
+        background-image: linear-gradient(to bottom, #683c03, #000000);
+        /* background-image: url('/img/img_sausage17.jpg'); */
+        background-size: cover; /* Ensures the image covers the entire section */
+        background-position: center; /* Centers the background image */
+        background-repeat: no-repeat; /* Prevents repeating of the background image */
+        min-height: 75vh; /* Adjust the height as needed, 100vh makes it full viewport height */
+        width: 100%; /* Full width */
+        padding: 2rem 0; /* Adds vertical spacing */
+    }
+}
+
+.btn {
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 125px;
+}
+ 
+.btn-boer {
+    background-image: linear-gradient(to bottom, #F5C937, #CC1C12);
+}
+
+.btn-chaka {
+    background-image: linear-gradient(to bottom, #F5A4A4, #C10404);
+}
+
+.btn-pork {
+    background-image: linear-gradient(to bottom, #E0A078, #B70707);
+}
+
+@media (max-width: 990px) {
+    .btn {
+        border-radius: 10px;
+        border: none;
+        height: 45px;
+        width: 105px;
+        font-size: medium;
+    }
+}
+
+
+
+
+.input-field {
+    background-color: transparent !important; /* Ensures always transparent */
+    border: 2px solid white !important; /* White border */
+    color: white !important; /* White text */
+}
+
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Light white placeholder */
+}
+
+.input-field:focus {
+    background-color: transparent !important;
+    border-color: #f8f9fa !important;
+    box-shadow: none !important;
+}
+
+/* Prevents white background when input is filled */
+.input-field:not(:placeholder-shown) {
+    background-color: transparent !important;
+}
+
+/* Fix for Chrome Autofill */
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:focus {
+    background-color: transparent !important;
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Fix for Firefox autofill */
+.input-field:-moz-ui-invalid {
+    background-color: transparent !important;
+}
+
+/* Override Bootstrap’s validation white background */
+.was-validated .input-field:valid,
+.input-field:valid {
+    background-color: transparent !important;
+}
+
+.btn1 {
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 200px;
+    font-size: x-large;
+}
+
+.boer {
+ padding-bottom: 20px;
+}
+
+.chaka {
+    padding-bottom: 15px;
+}
+
+.btn2 {
+    border-radius: 5px;
+    border: none;
+    width: 20px;  /* Increased width for better clickability */
+    height: 20px; /* Increased height for balance */
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+/* Adjust spacing */
+.fs-3 {
+    min-width: 30px; /* Ensure numbers are evenly spaced */
+    text-align: center;
+}
+
+.me-2 {
+    margin-right: 10px; /* Ensures gap between number and buttons */
+}
+
+.order {
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 200px;
+    background-color: green;
+    color: white;
+    font-size:x-large;
+}
+
+@media (max-width: 990px) {
+    .order,.btn1  {
+        font-size:large;
+        width: 135px;
+        height: 45px;
+    }
+}  
+
+
+.table {
+    background-color: transparent !important;
+  }
+  
+  .table thead,
+  .table tbody,
+  .table tfoot,
+  .table tr,
+  .table th,
+  .table td {
+    background-color: transparent !important;
+    color: white !important; 
+    border-color:transparent; /* Light white border */
+}
+
+.contact-right{
+    flex-basis: 60%;
+}
+
+.contact-right form{
+    width: 100%;
+    
+}
+
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+form .btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Remove background color and ensure inputs have border */
+form input, form textarea {
+    background-color: transparent; /* Remove background color */
+    border: 1px solid #050252; /* Set border color */
+    padding: 10px;
+    border-radius: 4px; /* Optional: Adds rounded corners */
+    width: 100%; /* Ensure they take the full width */
+  }
+  
+  /* Optional: Add border to the form */
+  form {
+    background-color: transparent; /* Remove background */
+    padding: 20px;
+    border-radius: 8px; /* Optional: Adds rounded corners to form */
+  }
+  
+  /* Optional: Resizing the textarea */
+  form textarea {
+    resize: vertical; /* Allows vertical resizing of the textarea */
+  }
+  
+  .text {
+    color: #050252;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 743px; /* Makes the image take up full viewport height */
+    display: flex;
+    align-items: center;
+}
+
+.img-review {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fills the space while maintaining aspect ratio */
+}
+
+.contact_us {
+    background-image: linear-gradient(to bottom, #9BDBF6, #C4C3F9);
+}
+
+.footer {
+    background-image: linear-gradient(to bottom, #FF8A04, #995303);
+}
+
+.linkz a {
+    color: #050252; /* Change this to any color */
+    text-decoration: none;
+  }
+  
+  .linkz a:hover {
+    color: #050252; /* Change the hover color */
+  }
+
+  .btn3 {
+    font-size:large;
+    width: 180px;
+    height: 70px;
+  }
+  
+  

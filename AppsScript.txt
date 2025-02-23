@@ -1,0 +1,229 @@
+var sheetName = 'form'
+var scriptProp = PropertiesService.getScriptProperties()
+
+function intialSetup () {
+  var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+  scriptProp.setProperty('key', activeSpreadsheet.getId())
+}
+
+function doPost (e) {
+  var lock = LockService.getScriptLock()
+  lock.tryLock(10000)
+
+  try {
+    var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
+    var sheet = doc.getSheetByName(sheetName)
+
+    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+    var nextRow = sheet.getLastRow() + 1
+
+    var newRow = headers.map(function(header) {
+      return header === 'timestamp' ? new Date() : e.parameter[header]
+    })
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON)
+  }
+
+  catch (e) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e }))
+      .setMimeType(ContentService.MimeType.JSON)
+  }
+
+  finally {
+    lock.releaseLock()
+  }
+}
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+var orderSheetName = 'form';
+var reviewSheetName = 'review';
+var scriptProp = PropertiesService.getScriptProperties();
+
+function intialSetup() {
+  var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  scriptProp.setProperty('key', activeSpreadsheet.getId());
+}
+
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
+    var sheet;
+    
+    // Check for a "Message" parameter – if present, this is a review submission.
+    if (e.parameter.Message) {
+      sheet = doc.getSheetByName(reviewSheetName);
+    } else {
+      sheet = doc.getSheetByName(orderSheetName);
+    }
+    
+    // Get the headers from the first row of the target sheet.
+    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var nextRow = sheet.getLastRow() + 1;
+
+    // Build the row by mapping each header to its corresponding parameter.
+    var newRow = headers.map(function(header) {
+      // For timestamp columns (named "timestamp" or "Time-Stamp"), insert the current date.
+      if (header.toLowerCase().indexOf("time") > -1) {
+        return new Date();
+      } else {
+        return e.parameter[header] || '';
+      }
+    });
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': error }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+
+
+
+---------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+var orderSheetName = 'form';
+var reviewSheetName = 'review';
+var contactSheetName = 'contact'; // Changed from 'review' to 'contact'
+var scriptProp = PropertiesService.getScriptProperties();
+
+function initialSetup() { // Corrected spelling from "intialSetup"
+  var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  scriptProp.setProperty('key', activeSpreadsheet.getId());
+}
+
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
+    var sheet;
+    
+    // Use a formType parameter to decide which sheet to use.
+    // For example, set formType to "review" for review submissions,
+    // "contact" for contact submissions, and leave it unset (or set to another value)
+    // for order submissions.
+    if (e.parameter.formType === 'review') {
+      sheet = doc.getSheetByName(reviewSheetName);
+    } else if (e.parameter.formType === 'contact') {
+      sheet = doc.getSheetByName(contactSheetName);
+    } else {
+      sheet = doc.getSheetByName(orderSheetName);
+    }
+    
+    // Get the headers from the first row of the target sheet.
+    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var nextRow = sheet.getLastRow() + 1;
+
+    // Build the new row by mapping each header to its corresponding parameter.
+    var newRow = headers.map(function(header) {
+      // For timestamp columns (named "timestamp" or similar), insert the current date.
+      if (header.toLowerCase().indexOf("time") > -1) {
+        return new Date();
+      } else {
+        return e.parameter[header] || '';
+      }
+    });
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': error }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+
+
+
+------------------------------------------------------------------------------------------
+
+
+
+
+
+var orderSheetName = 'form';
+var reviewSheetName = 'review';
+var contactSheetName = 'contact'; 
+var scriptProp = PropertiesService.getScriptProperties();
+
+function initialSetup() { // Corrected spelling from "intialSetup"
+  var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  scriptProp.setProperty('key', activeSpreadsheet.getId());
+}
+
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
+    var sheet;
+    
+   
+    if (e.parameter.formType === 'review') {
+      sheet = doc.getSheetByName(reviewSheetName);
+    } else if (e.parameter.formType === 'contact') {
+      sheet = doc.getSheetByName(contactSheetName);
+    } else {
+      sheet = doc.getSheetByName(orderSheetName);
+    }
+    
+    
+    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var nextRow = sheet.getLastRow() + 1;
+
+  
+    var newRow = headers.map(function(header) {
+      if (header.toLowerCase().indexOf("time") > -1) {
+        // Format the timestamp to include both date and time.
+        return Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "MM/dd/yyyy HH:mm:ss");
+      } else {
+        return e.parameter[header] || '';
+      }
+    });
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': error }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}

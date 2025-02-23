@@ -359,7 +359,7 @@ document.querySelector(".order").addEventListener("click", () => {
     .then(response => response.json())
     .then(() => {
       Toastify({
-        text: "Order submitted successfully!",
+        text: "Thank you for ordering!",
         duration: 3000,
         gravity: "top",
         position: "right",
@@ -396,7 +396,7 @@ document.querySelector(".order").addEventListener("click", () => {
     .then(response => response.json())
     .then(() => {
       Toastify({
-        text: "Review submitted successfully!",
+        text: "Thank you for your feedback",
         duration: 3000,
         gravity: "top",
         position: "right",
@@ -438,7 +438,7 @@ document.querySelectorAll("form[name='submit-to-google-sheet-contact']").forEach
       .then(response => response.json())
       .then(() => {
         Toastify({
-          text: "Contact form submitted successfully!",
+          text: "Thank you for contacting us!",
           duration: 3000,
           gravity: "top",
           position: "right",
@@ -484,8 +484,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Dictionary mapping keywords to responses
   const responses = {
+    "hello": "How are you? How can I be of help?",
     "hi": "How are you? How can I be of help?",
     "hey": "How are you? How can I be of help?",
+    "Garlic": "Sorry, at the moment we do not have garlic sausage",
     "delivery": "At the moment we do not deliver.",
     "deliver": "At the moment we do not deliver.",
     "bone": "We don't have beef bones.",
@@ -493,7 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "order": "You can place your order using the form on our site.",
     "price": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
     "how much": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
-    "contact": "Feel free to use the contact form or call us directly."
+    "contact": "Feel free to use the contact form or call us directly on +48 734 808 360."
   };
   
 
@@ -519,7 +521,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
     if (!foundResponse) {
-      appendMessage("Bot", "I'm sorry, I don't have an answer for that.");
+      appendMessage("Bot", "I'm sorry, I don't have an answer for that. Please contact us using the form. Thank you!");
     }
   }
 

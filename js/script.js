@@ -490,6 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Garlic": "Sorry, at the moment we do not have garlic sausage",
     "delivery": "At the moment we do not deliver.",
     "deliver": "At the moment we do not deliver.",
+    "beef": "Sorry, we do not have beef sausage.",
     "bone": "We don't have beef bones.",
     "bones": "We don't have beef bones.",
     "order": "You can place your order using the form on our site.",

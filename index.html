@@ -81,7 +81,7 @@
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="img/img_sausage44.png" class="d-block w-50 mx-auto" alt="...">
+            <img src="img/img_sausage4.png" class="d-block w-50 mx-auto" alt="...">
           </div>
           <div class="carousel-item">
             <img src="img/img_sausage6.png" class="d-block w-50 mx-auto" alt="...">
@@ -238,91 +238,89 @@
       </div>
     </section>
 
-    <section class="d-none d-lg-block" style="color: #050252;" id="reviews"> 
-      <div class="row position-relative">
-        <!-- Left side: Reviews + Form -->
-        <div class="col-md-8 d-flex justify-content-center align-items-center flex-column">
-          <div class="text-center">
-            <h2 class="mt-3">Reviews</h2>
-            <p class="fs-5" style="color:#6A6993;">We value your opinion.</p>
+    <section id="reviews">
+      <!-- Desktop Reviews (visible on lg and above) -->
+      <div class="d-none d-lg-block" style="color: #050252;">
+        <div class="row position-relative">
+          <!-- Left side: Reviews + Form -->
+          <div class="col-md-8 d-flex justify-content-center align-items-center flex-column">
+            <div class="text-center">
+              <h2 class="mt-3">Reviews</h2>
+              <p class="fs-5" style="color:#6A6993;">We value your opinion.</p>
+            </div>
+            <div class="mt-4">
+              <form name="submit-to-google-sheet-md" id="reviewForm-md">
+                <label for="firstName" class="form-label fs-4">Name</label>
+                <input type="text" name="Name" placeholder="Name" class="text">
+                <div class="d-flex">
+                  <div class="me-4">
+                    <label for="Email" class="form-label fs-4">Email</label>
+                    <input type="email" name="Email" placeholder="Email" class="text">
+                  </div>
+                  <div>
+                    <label for="Phone" class="form-label fs-4">Phone</label>
+                    <input type="phone" name="Phone" placeholder="Phone" class="text">
+                  </div>
+                </div>
+                <p class="pt-3">Kindly take a moment to tell us what you think.</p>
+                <textarea class="text" name="Message" rows="6" placeholder="Message..." required></textarea>
+                <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-success">
+                    Submit <i class="ms-1 fas fa-paper-plane"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="mt-4">
-            <form name="submit-to-google-sheet-md" id="reviewForm-md">
-              <label for="firstName" class="form-label fs-4">Name</label>
-              <input type="text" name="Name" placeholder="Name"  class="text">
-    
-              <div class="d-flex">
-                <div class="me-4">
-                  <label for="Email" class="form-label fs-4">Email</label>
-                  <input type="email" name="Email" placeholder="Email" class="text">
-                </div>
-                <div>
-                  <label for="Phone" class="form-label fs-4">Phone</label>
-                  <input type="phone" name="Phone" placeholder="Phone" class="text">
-                </div>
-              </div>
-    
-              <p class="pt-3">Kindly take a moment to tell us what you think.</p>
-              <textarea class="text" name="Message" rows="6" placeholder="Message..." required></textarea>
-    
-              <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-success">
-                  Submit <i class="ms-1 fas fa-paper-plane"></i>
-                </button>
-              </div>
-            </form>
+          <!-- Right side: Image -->
+          <div class="col-md-4 position-absolute end-0 top-0 h-100 d-none d-lg-block">
+            <div class="img-container">
+              <img src="/img/img_sausage3.jpg" class="img-fluid img-review" alt="Review Image">
+            </div>
           </div>
         </div>
+      </div>
     
-        <!-- Right side: Image -->
-        <div class="col-md-4 position-absolute end-0 top-0 h-100 d-none d-lg-block">
-          <div class="img-container">
-            <img src="/img/img_sausage3.jpg" class="img-fluid img-review" alt="Review Image">
+      <!-- Mobile Reviews (visible on sm/md screens) -->
+      <div class="d-block d-lg-none" style="color: #050252;">
+        <div class="row position-relative">
+          <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+            <div class="text-center">
+              <h2 class="mt-3">Reviews</h2>
+              <p class="fs-5" style="color:#6A6993;">We value your opinion.</p>
+            </div>
+            <div class="mt-4">
+              <form name="submit-to-google-sheet-sm" id="reviewForm-sm">
+                <label for="firstName" class="form-label fs-4">Name</label>
+                <input type="text" name="Name" placeholder="Name" class="text">
+                <div class="d-flex">
+                  <div class="me-4">
+                    <label for="Email" class="form-label fs-4">Email</label>
+                    <input type="email" name="Email" placeholder="Email" class="text">
+                  </div>
+                  <div>
+                    <label for="Phone" class="form-label fs-4">Phone</label>
+                    <input type="phone" name="Phone" placeholder="Phone" class="text">
+                  </div>
+                </div>
+                <p class="pt-3">Kindly take a moment to tell us what you think.</p>
+                <textarea class="text" name="Message" rows="6" placeholder="Message..." required></textarea>
+                <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-success">
+                    Submit <i class="ms-1 fas fa-paper-plane"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </section>
     
-    <section class="d-block d-lg-none" style="color: #050252;"> 
-      <div class="row position-relative ">
-        <!-- Left side: Reviews + Form -->
-        <div class="col-12 d-flex justify-content-center align-items-center flex-column">
-          <div class="text-center">
-            <h2 class="mt-3">Reviews</h2>
-            <p class="fs-5" style="color:#6A6993;">We value your opinion.</p>
-          </div>
-          <div class="mt-4">
-            <form name="submit-to-google-sheet-sm" id="reviewForm-sm">
-              <label for="firstName" class="form-label fs-4">Name</label>
-              <input type="text" name="Name" placeholder="Name" class="text">
     
-              <div class="d-flex">
-                <div class="me-4">
-                  <label for="Email" class="form-label fs-4">Email</label>
-                  <input type="email" name="Email" placeholder="Email" class="text">
-                </div>
-                <div>
-                  <label for="Phone" class="form-label fs-4">Phone</label>
-                  <input type="phone" name="Phone" placeholder="Phone" class="text">
-                </div>
-              </div>
-    
-              <p class="pt-3">Kindly take a moment to tell us what you think.</p>
-              <textarea class="text" name="Message" rows="6" placeholder="Message..." required></textarea>
-    
-              <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-success">
-                  Submit <i class="ms-1 fas fa-paper-plane"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="contact_us d-none d-lg-block" id="contact">
-      <div class="justify-content-center">
+    <section class="contact_us" id="contact">
+      <!-- Desktop Contact (visible on lg and above) -->
+      <div class="justify-content-center d-none d-lg-block">
         <h2 class="text-center pt-4">Contact Us</h2>
         <div class="row">
           <div class="col-12 col-md-4 d-flex justify-content-center ">
@@ -366,10 +364,9 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="contact_us d-block d-lg-none" id="contact">
-      <div class="">
+       <!-- Mobile Contact (visible on sm/md screens) -->
+      <div class="contact_us d-block d-lg-none">
         <h2 class="text-center pt-4">Contact Us</h2>
         <div class="row">
           <div class="ps-4 col-12 col-md-6 pt-4">
@@ -414,8 +411,9 @@
         </div>
       </div>
     </section>
+
   
-    <footer class="footer">
+    <footer class="footer" style="color: #050252;">
       <div class="container">
         <div class="row">
           <div class="col-md-4 mt-4 d-none d-md-block">

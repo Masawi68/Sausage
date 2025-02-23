@@ -143,7 +143,7 @@ section {
     border-radius: 10px;
     border: none;
     height: 50px;
-    width: 125px;
+    width: 150px;
 }
  
 .btn-boer {
@@ -162,8 +162,8 @@ section {
     .btn {
         border-radius: 10px;
         border: none;
-        height: 45px;
-        width: 105px;
+        height: 50px;
+        width: 150px;
         font-size: medium;
     }
 }

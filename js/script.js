@@ -486,6 +486,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const responses = {
     "hello": "How are you? How can I be of help?",
     "hi": "How are you? How can I be of help?",
+    "bye": "Thank you for visiting our website, have a great day!",
+    "no": "Thank you for visiting our website, have a great day!",
+    "see you": "Thank you for visiting our website, have a great day!",
+    "thank you": "You are welcome. Is there anything else I can assist you with?",
     "hey": "How are you? How can I be of help?",
     "Garlic": "Sorry, at the moment we do not have garlic sausage",
     "delivery": "At the moment we do not deliver.",

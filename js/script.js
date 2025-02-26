@@ -589,9 +589,9 @@ const responses = {
   "garlic": "Sorry, at the moment we do not have garlic sausage.",
   "delivery": "Delivery available on Saturdays for orders of 2 or more sausages.",
   "deliver": "Delivery available on Saturdays for orders of 2 or more sausages.",
-  "beef bones": "We don't have beef bones.",  // ✅ Exact match for "beef bones"
+  "beef bones": "We don't have beef bones.", 
   "bones": "We don't have beef bones.",
-  "beef": "Sorry, we do not have beef sausage.", // ✅ Now this won’t trigger for "beef bones"
+  "beef": "Sorry, we do not have beef sausage.", 
   "order": "You can place your order using the form on our site.",
   "price": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
   "how much": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
@@ -612,13 +612,11 @@ function appendMessage(sender, text) {
 function processMessage(message) {
   message = message.toLowerCase().trim();
 
-  // ✅ First, check for exact match
   if (responses.hasOwnProperty(message)) {
     appendMessage("Bot", responses[message]);
     return;
   }
 
-  // ✅ Then, check for partial matches
   for (let keyword in responses) {
     let regex = new RegExp("\\b" + keyword + "\\b", "i");
     if (regex.test(message)) {
@@ -643,8 +641,7 @@ document.getElementById('chatbot-input').addEventListener('keypress', function(e
   }
 });
 
-// Function to reset the chat session
 function resetChat() {
-  document.getElementById('chatbot-messages').innerHTML = ""; // Clear messages
-  document.getElementById('chatbot-input').value = ""; // Clear input field
+  document.getElementById('chatbot-messages').innerHTML = "";
+  document.getElementById('chatbot-input').value = ""; 
 }

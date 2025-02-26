@@ -47,18 +47,14 @@
             <div class="custom-line-height instock">
                 1. Boerwors <br>
                 <span style="margin-left: 50px;">2. Chakalaka</span><br>
-                <span style="margin-left: 100px;">3. Pork Sausage</span><br><br>
+                <span style="margin-left: 100px;">3. Pork Sausage</span><br>
                 <span>To Come...</span><br>
                 <span><i class="far fa-star" style="margin-left: 25px;"></i> Garlic Sausage</span>
             </div>
         </div>
     
-        <!-- Image Section -->
+        <!-- Desktop view -->
         <div class="col-12 col-md-6">
-          <!-- <div class="card justify-content-center align-items-center" style="width: 900px; height: 450px; background-color: transparent ;">
-            <img src="/img/img_sausage5.png" alt="Sausage Image" class="img-fluid" style="width: 550px;">
-          </div> -->
-
           <div id="carousel_stock" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
               <div class="carousel-inner">
                   <div class="carousel-item active ">
@@ -73,8 +69,6 @@
               </div>
             </div>
         </div>
-      </div>
-      
     </section>
 
     <section class="container col-12 mt-5 mb-5">
@@ -430,13 +424,17 @@
               <!-- Chatbot Container -->
             <div id="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; width: 300px; z-index: 1000;">
               <!-- Chatbot Header -->
-              <div id="chatbot-header" style="background-color: #1409a3; color: white; padding: 10px; cursor: pointer;">
-                Chatbot
+              <div id="chatbot-header" style="background-color: #1409a3; color: white; padding: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span>Chatbot</span>
+                <button id="chatbot-close" style="background: none; border: none; color: white; font-size: 16px; cursor: pointer;">
+                  ❌
+                </button>
               </div>
               <!-- Chatbot Body (initially hidden) -->
               <div id="chatbot-body" style="display: none; background-color: #f1f1f1; padding: 10px; max-height: 400px; overflow-y: auto;">
                 <div id="chatbot-messages"></div>
-                <input type="text" id="chatbot-input" placeholder="Type your message here..." style="width: 100%; padding: 5px; margin-top: 10px;" />
+                <input type="text" id="chatbot-input" placeholder="Type your message here..." style="width: 80%; padding: 5px; margin-top: 10px; flex: 1; margin-right: 5px;" />
+                <button id="chatbot-send" style="background-color: #1409a3; color: white; border: none; padding: 5px 10px; cursor: pointer; font-size: 16px;">📤</button>
               </div>
             </div>
           </div>

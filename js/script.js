@@ -463,7 +463,7 @@ document.querySelectorAll("form[name='submit-to-google-sheet-contact']").forEach
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+/* document.addEventListener("DOMContentLoaded", function () {
   const navbarHeight = document.querySelector(".navbar").offsetHeight;
   document.querySelector(".background-section").style.paddingTop = navbarHeight + "px";
 });
@@ -495,10 +495,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "thanx": "You are welcome. Is there anything else I can assist you with?",
     "hey": "How are you? How can I be of help?",
     "Garlic": "Sorry, at the moment we do not have garlic sausage",
-    "delivery": "At the moment we do not deliver.",
-    "deliver": "At the moment we do not deliver.",
+    "delivery": "Delivery available on Saturdays for orders of 2 or more sausages.",
+    "deliver": "Delivery available on Saturdays for orders of 2 or more sausages.",
     "beef": "Sorry, we do not have beef sausage.",
-    "bone": "We don't have beef bones.",
+    "beef bones": "We don't have beef bones.",
     "bones": "We don't have beef bones.",
     "order": "You can place your order using the form on our site.",
     "price": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
@@ -556,4 +556,95 @@ function resetChat() {
   // If you have any timers or other state, clear or reset them here
 }
 
-// Toggle the chat window and reset when closing
+// Toggle the chat window and reset when closing */
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navbarHeight = document.querySelector(".navbar").offsetHeight;
+  document.querySelector(".background-section").style.paddingTop = navbarHeight + "px";
+});
+
+document.getElementById("chatbot-header").addEventListener("click", function() {
+  var chatbotBody = document.getElementById("chatbot-body");
+  if (chatbotBody.style.display === "none" || chatbotBody.style.display === "") {
+    chatbotBody.style.display = "block"; // Open chat
+  } else {
+    chatbotBody.style.display = "none"; // Close chat & reset session
+    resetChat();
+  }
+});
+
+// Dictionary mapping keywords to responses
+const responses = {
+  "hello": "How are you? How can I be of help?",
+  "ask": "How can I help you?",
+  "hi": "How are you? How can I be of help?",
+  "bye": "Thank you for visiting our website, have a great day!",
+  "no": "Thank you for visiting our website, have a great day!",
+  "see you": "Thank you for visiting our website, have a great day!",
+  "thank you": "You are welcome. Is there anything else I can assist you with?",
+  "thank u": "You are welcome. Is there anything else I can assist you with?",
+  "thanx": "You are welcome. Is there anything else I can assist you with?",
+  "hey": "How are you? How can I be of help?",
+  "garlic": "Sorry, at the moment we do not have garlic sausage.",
+  "delivery": "Delivery available on Saturdays for orders of 2 or more sausages.",
+  "deliver": "Delivery available on Saturdays for orders of 2 or more sausages.",
+  "beef bones": "We don't have beef bones.",  // ✅ Exact match for "beef bones"
+  "bones": "We don't have beef bones.",
+  "beef": "Sorry, we do not have beef sausage.", // ✅ Now this won’t trigger for "beef bones"
+  "order": "You can place your order using the form on our site.",
+  "price": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
+  "how much": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
+  "contact": "Feel free to use the contact form or call us directly on +48 734 808 360."
+};
+
+// Append a message to the chat window
+function appendMessage(sender, text) {
+  var messagesDiv = document.getElementById('chatbot-messages');
+  var messageDiv = document.createElement('div');
+  messageDiv.className = "message";
+  messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  messagesDiv.appendChild(messageDiv);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to bottom
+}
+
+// Process user's message and check for exact or partial matches
+function processMessage(message) {
+  message = message.toLowerCase().trim();
+
+  // ✅ First, check for exact match
+  if (responses.hasOwnProperty(message)) {
+    appendMessage("Bot", responses[message]);
+    return;
+  }
+
+  // ✅ Then, check for partial matches
+  for (let keyword in responses) {
+    let regex = new RegExp("\\b" + keyword + "\\b", "i");
+    if (regex.test(message)) {
+      appendMessage("Bot", responses[keyword]);
+      return;
+    }
+  }
+
+  // No match found, send default response
+  appendMessage("Bot", "I'm sorry, I don't have an answer for that. Please contact us using the form. Thank you!");
+}
+
+// Listen for the Enter key on the input field
+document.getElementById('chatbot-input').addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    let userMessage = this.value.trim();
+    if (userMessage !== "") {
+      appendMessage("You", userMessage);
+      processMessage(userMessage);
+      this.value = "";
+    }
+  }
+});
+
+// Function to reset the chat session
+function resetChat() {
+  document.getElementById('chatbot-messages').innerHTML = ""; // Clear messages
+  document.getElementById('chatbot-input').value = ""; // Clear input field
+}

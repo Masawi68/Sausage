@@ -47,7 +47,7 @@ boerworsButton.addEventListener("click", () => updateQty("boerwors", 1));
 chakalakaButton.addEventListener("click", () => updateQty("chakalaka", 1));
 porkButton.addEventListener("click", () => updateQty("pork", 1));
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwzAbOup9RAkfZyhMiI5zZsX4Fxwafm717SzsoDofHzkzGRoZZWDdF0SbFt8n9Vk1J1/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzNmq2N-C4zLC3EIBAefdWNfpnEW_Z3o8GXG7SCTNDC7s8joo3cPsIkg-nZimd1acCn/exec';
 
 document.querySelector(".order").addEventListener("click", () => {
   const firstName = document.getElementById("firstName").value.trim();
@@ -210,10 +210,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("chatbot-header").addEventListener("click", function() {
   var chatbotBody = document.getElementById("chatbot-body");
+  var closeButton = document.getElementById("chatbot-close");
   if (chatbotBody.style.display === "none" || chatbotBody.style.display === "") {
     chatbotBody.style.display = "block"; // Open chat
+    closeButton.style.display = "inline"; // Show close button
   } else {
     chatbotBody.style.display = "none"; // Close chat & reset session
+    closeButton.style.display = "none"; // Hide close button
     resetChat();
   }
 });
@@ -222,6 +225,7 @@ document.getElementById("chatbot-header").addEventListener("click", function() {
 document.getElementById("chatbot-close").addEventListener("click", function(event) {
   event.stopPropagation(); // Prevents triggering the header toggle
   document.getElementById("chatbot-body").style.display = "none";
+  document.getElementById("chatbot-close").style.display = "none"; // Hide close button
   resetChat();
 });
 
@@ -245,6 +249,7 @@ const responses = {
   "beef": "Sorry, we do not have beef sausage.", 
   "order": "You can place your order using the form on our site.",
   "price": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
+  "prices": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
   "how much": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
   "contact": "Feel free to use the contact form or call us directly on +48 734 808 360."
 };
@@ -305,3 +310,17 @@ function resetChat() {
   document.getElementById('chatbot-messages').innerHTML = "";
   document.getElementById('chatbot-input').value = ""; 
 }
+
+
+
+document.getElementById("info-icon").addEventListener("click", function () {
+  var message = document.getElementById("info-message");
+  message.classList.toggle("d-none"); // Toggle visibility
+
+  // If message is shown, hide it after 5 seconds
+  if (!message.classList.contains("d-none")) {
+    setTimeout(function () {
+      message.classList.add("d-none");
+    }, 5000);
+  }
+});

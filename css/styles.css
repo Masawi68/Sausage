@@ -362,16 +362,23 @@ form input, form textarea {
 .linkz a {
     color: #050252; /* Change this to any color */
     text-decoration: none;
-  }
-  
-  .linkz a:hover {
-    color: #050252; /* Change the hover color */
-  }
+}
 
-  .btn3 {
-    font-size:large;
-    width: 180px;
-    height: 70px;
-  }
+@media (max-width: 990px) {
+    .linkz a {
+        font-size:medium;
+       
+    }
+} 
+  
+.linkz a:hover {
+    color: #050252; /* Change the hover color */
+}
+
+.btn3 {
+    font-size:medium;
+    width: 140px;
+    height: 40px;
+}
   
   

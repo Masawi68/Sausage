@@ -311,10 +311,58 @@ function resetChat() {
   document.getElementById('chatbot-input').value = ""; 
 }
 
-
-
 document.getElementById("info-icon").addEventListener("click", function () {
   var message = document.getElementById("info-message");
+  message.classList.toggle("d-none"); // Toggle visibility
+
+  // If message is shown, hide it after 5 seconds
+  if (!message.classList.contains("d-none")) {
+    setTimeout(function () {
+      message.classList.add("d-none");
+    }, 5000);
+  }
+});
+
+document.getElementById("info-icon1").addEventListener("click", function () {
+  var message = document.getElementById("info-message1");
+  message.classList.toggle("d-none"); // Toggle visibility
+
+  // If message is shown, hide it after 5 seconds
+  if (!message.classList.contains("d-none")) {
+    setTimeout(function () {
+      message.classList.add("d-none");
+    }, 5000);
+  }
+});
+
+
+document.getElementById("info-icon1a").addEventListener("click", function () {
+  var message = document.getElementById("info-message1a");
+  message.classList.toggle("d-none"); // Toggle visibility
+
+  // If message is shown, hide it after 5 seconds
+  if (!message.classList.contains("d-none")) {
+    setTimeout(function () {
+      message.classList.add("d-none");
+    }, 5000);
+  }
+});
+
+
+document.getElementById("info-icon2").addEventListener("click", function () {
+  var message = document.getElementById("info-message2");
+  message.classList.toggle("d-none"); // Toggle visibility
+
+  // If message is shown, hide it after 5 seconds
+  if (!message.classList.contains("d-none")) {
+    setTimeout(function () {
+      message.classList.add("d-none");
+    }, 5000);
+  }
+});
+
+document.getElementById("info-icon2a").addEventListener("click", function () {
+  var message = document.getElementById("info-message2a");
   message.classList.toggle("d-none"); // Toggle visibility
 
   // If message is shown, hide it after 5 seconds

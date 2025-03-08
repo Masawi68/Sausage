@@ -227,3 +227,91 @@ function doPost(e) {
     lock.releaseLock();
   }
 }
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+var orderSheetName = 'form';
+var reviewSheetName = 'review';
+var contactSheetName = 'contact';
+var scriptProp = PropertiesService.getScriptProperties();
+
+function initialSetup() {
+  var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  scriptProp.setProperty('key', activeSpreadsheet.getId());
+}
+
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
+    var sheet;
+
+    if (e.parameter.formType === 'review') {
+      sheet = doc.getSheetByName(reviewSheetName);
+    } else if (e.parameter.formType === 'contact') {
+      sheet = doc.getSheetByName(contactSheetName);
+    } else {
+      sheet = doc.getSheetByName(orderSheetName);
+    }
+
+    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var nextRow = sheet.getLastRow() + 1;
+
+    var newRow = headers.map(function(header) {
+      if (header.toLowerCase().indexOf("time") > -1) {
+        return Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "MM/dd/yyyy HH:mm:ss");
+      } else {
+        return e.parameter[header] || '';
+      }
+    });
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+
+    // Retrieve customer details
+    var customerEmail = e.parameter["Email"];
+    var customerName = e.parameter["Name"] ? e.parameter["Name"].trim() : ""; // Trim any spaces
+    var boerworsQty = e.parameter["BoerworsQty"] || 0;
+    var chakalakaQty = e.parameter["ChakalakaQty"] || 0;
+    var porkQty = e.parameter["PorkQty"] || 0;
+    var totalPrice = e.parameter["Total"] || 0;
+
+    // Send confirmation email
+    if (customerEmail) {
+      sendOrderConfirmation(customerEmail, customerName, boerworsQty, chakalakaQty, porkQty, totalPrice);
+    }
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+// Function to send email confirmation
+function sendOrderConfirmation(email, name, boerwors, chakalaka, pork, total) {
+  var greeting = name ? "Dear " + name : "Dear Customer"; // If no name, use "Dear Customer"
+
+  var subject = "Order Confirmation - Thank You for Your Purchase!";
+  var body = greeting + ",\n\n" +
+             "Thank you for your order! Here are the details:\n\n" +
+             "- Boerwors: " + boerwors + "\n" +
+             "- Chakalaka: " + chakalaka + "\n" +
+             "- Pork: " + pork + "\n" +
+             "- Total Price: " + total + " PLN\n\n" +
+             "- To update your oder please contact 734 808 360\n\n" +
+             "Your order has been received and we will contact you shortly.\n\n" +
+             "Best Regards,\nMeat Plug";
+
+  MailApp.sendEmail(email, subject, body);
+}

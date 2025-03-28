@@ -125,6 +125,7 @@ section {
     background-repeat: no-repeat; /* Prevents repeating of the background image */
     min-height: 75vh; /* Adjust the height as needed, 100vh makes it full viewport height */
     width: 100%; /* Full width */
+    position: relative;
 }
 @media (max-width: 990px) {
     .background-section1 {
@@ -136,6 +137,7 @@ section {
         min-height: 75vh; /* Adjust the height as needed, 100vh makes it full viewport height */
         width: 100%; /* Full width */
         padding: 2rem 0; /* Adds vertical spacing */
+        position: relative;
     }
 }
 
@@ -382,3 +384,80 @@ form input, form textarea {
 }
    */
   
+
+
+.triangle {
+  width: 0px;
+  height: 0px;
+  border-top: 250px solid #fc0000;
+  border-left: 0  solid transparent;
+  border-right: 250px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.textSpecial {
+    color: white;
+    font-weight: 600;
+    font-size:xx-large;
+    position: absolute;
+    margin-top: -225px;
+    transform: rotate(-45deg)
+}
+
+@media (max-width: 990px) {
+    .textSpecial {
+        color: white;
+        font-weight: 300;
+        font-size: large;
+        position: absolute;
+        margin-top: -135px;
+        transform: rotate(-45deg)
+    }
+}
+
+@media (max-width: 990px) {
+    .triangle {
+        width: 0px;
+        height: 0px;
+        border-top: 150px solid #fc0000;
+        border-left: 0  solid transparent;
+        border-right: 150px solid transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+}
+
+
+@media (max-width: 480px) {
+    .triangle {
+        width: 0px;
+        height: 0px;
+        border-top: 0px solid #fc0000;
+        border-left: 0  solid transparent;
+        border-right: 0px solid transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+}
+
+
+@media (max-width: 480px) {
+    .textSpecial {
+        display: none;
+    }
+}
+
+.textSpecial2 {
+    font-size:35px;
+    color: red;
+}
+
+@media (min-width: 481px) {
+    .textSpecial2 {
+        display: none; /* hide it completely for very small screens */
+    }
+}

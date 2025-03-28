@@ -50,11 +50,7 @@
     </nav>
 
     <section class="background-section">
-      <div class="col-12 flex text-center text-white fs-1 mb-3">
-        <div>
-          In Stock
-        </div>
-      </div>
+      <h1 class="text-center pt-3" style="color: white;">In Stock</h1>
       <div class="container d-flex flex-column flex-md-row align-items-center">
         <!-- Text Section -->
         <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center text-white fs-2">
@@ -65,10 +61,10 @@
                 <span>To Come...</span><br>
                 <span><i class="far fa-star" style="margin-left: 25px;"></i> Garlic Sausage</span>
             </div>
-        </div>
+        </div> 
     
         <!-- Desktop view -->
-        <div class="col-12 col-md-6">
+        <div class="container col-12 col-md-6">
           <div id="carousel_stock" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
               <div class="carousel-inner">
                   <div class="carousel-item active ">
@@ -85,7 +81,7 @@
         </div>
     </section>
 
-    <section class="container col-12 mt-5 mb-5">
+   <!--  <section class="container col-12 mt-5 mb-5">
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -107,173 +103,178 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-    </section>
+    </section> -->
 
-    <section class="background-section1" id="order">
-      <div class="container" name="submit-to-google-sheet">
-        <h1 class="text-center pt-3" style="color: white;">Make your Order</h1>
-        <!-- <div class="position-relative text-center pt-3 fs-4">
-          <p class="position-absolute w-100" style="color: rgb(255, 0, 0); top: 0; left: 0; z-index: 2;">
-            We deliver within Warsaw only on Saturdays for orders of two or more sausages.
-          </p>
-          <p class="position-absolute w-100 " style="color: white; top: 2px; left: 2px; z-index: 1;">
-            We deliver within Warsaw only on Saturdays for orders of two or more sausages.
-          </p>
-        </div> -->
-
-        <div class="text-center py-1 d-none d-lg-block" style="background-color: #f7dbbb; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); max-width: 70%; margin: auto;">
-          <p class="fs-4" style="color: rgb(15, 15, 15); margin: 0;">
-            We deliver within Warsaw only on Saturdays for orders above 60 Pln.
-          </p>
-        </div>
-      
-        <div class="text-center py-1 d-block d-lg-none" style="background-color: #f7dbbb; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); max-width: 90%; margin: auto;">
-          <p class="" style="color: rgb(15, 15, 15); margin: 0; font-size: medium;">
-            We deliver within Warsaw only on Saturdays for orders above 60 Pln.
-          </p>
-        </div>
-        
-        
-        <div class="row">
-          <div class="col-12 col-lg-6 pt-2">
-            <div class="card" style="background-color: transparent; border: none;">
-              <div class="card-body">
-                <form class="custom-form">
-                  <!-- Info Icon and Tooltip -->
-                  <div class="d-flex align-items-center mb-3">
-                    <i class="fa-solid fa-circle-exclamation fs-5 text-warning me-2" id="info-icon" style="cursor: pointer;"></i>
-                    <p id="info-message" class="text-light mb-0 d-none">
-                      The data collected is used only to contact you regarding your order.
-                    </p>
-                  </div>
-            
-            
-                  <div class="row mb-4" style="color: white;">
-                    <div class="col-md-6">
-                      <label for="firstName" class="form-label fs-4">Name</label>
-                      <input type="text" class="form-control input-field" id="firstName" name="Name" placeholder="Name" style="height: 50px;" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="lastName" class="form-label fs-4">Last Name</label>
-                      <input type="text" class="form-control input-field" id="lastName" name="Last Name" placeholder="Last name" style="height: 50px;">
-                    </div>
-                  </div>
-            
-                  <div class="row mb-5" style="color: white;">
-                    <div class="col-md-6">
-                      <label for="email" class="form-label fs-4">Email</label>
-                      <input type="email" class="form-control input-field" id="email" name="Email" placeholder="Email" style="height: 50px;" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="phone" class="form-label fs-4">Phone</label>
-                      <input type="tel" class="form-control input-field" id="phone" name="Phone" placeholder="Phone" style="height: 50px;" required>
-                    </div>
-                  </div>
-            
-                  <!-- Order Details Section -->
-                  <div class="mt-3">
-                    <p class="fs-4 mb-4" style="color: white;">Click to Add</p>
-                  </div>
-                  <div class="d-flex justify-content-center align-items-center gap-4">
-                    <button type="button" class="btn btn-boer">Boerwors</button>
-                    <button type="button" class="btn btn-chaka">Chakalaka</button>
-                    <button type="button" class="btn btn-pork">Pork</button>
-                  </div>
-            
-                  <div class="d-flex justify-content-center align-items-center gap-4">
-                    <div id="order-details">
-                      <!-- Dynamically updated order details will be shown here -->
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Order Summary Table -->
-          <div class="col-12 col-lg-6">
-            <div class="container">
-              <div class="card bg-transparent border-0 text-white">
-                <div class="card-body">
-                  <h2 class="text-center fs-2 pt-5">Total Order</h2>
-                  <div class="table-responsive">
-                    <table class="table text-white text-center border-0">
-                      <thead>
-                        <tr>
-                          <th class="fs-4">Item</th>
-                          <th class="fs-4">Qty</th>
-                          <th class="fs-4">Price</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="fs-4">Boerwors</td>
-                          <td>
-                            <div class="d-flex justify-content-center">
-                              <p id="boerwors-qty" class="fs-3 mb-0">0</p>
-                              <div>
-                                <button class="btn2" style="color: greenyellow;" onclick="updateQty('boerwors', 1)">▲</button>
-                                <button class="btn2" style="color: red;" onclick="updateQty('boerwors', -1)">▼</button>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="fs-3"><span id="boerwors-price">0</span></td>
-                        </tr>
-                        <tr>
-                          <td class="fs-4">Chakalaka</td>
-                          <td>
-                            <div class="d-flex justify-content-center">
-                              <p id="chakalaka-qty" class="fs-3 mb-0">0</p>
-                              <div>
-                                <button class="btn2" style="color: greenyellow;" onclick="updateQty('chakalaka', 1)">▲</button>
-                                <button class="btn2" style="color: red;" onclick="updateQty('chakalaka', -1)">▼</button>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="fs-3"><span id="chakalaka-price">0</span></td>
-                        </tr>
-                        <tr>
-                          <td class="fs-4">Pork</td>
-                          <td>
-                            <div class="d-flex justify-content-center">
-                              <p id="pork-qty" class="fs-3 mb-0">0</p>
-                              <div class="d-flex flex-column">
-                                <button class="btn2" style="color: greenyellow;" onclick="updateQty('pork', 1)">▲</button>
-                                <button class="btn2" style="color: red;" onclick="updateQty('pork', -1)">▼</button>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="fs-3"><span id="pork-price">0</span></td>
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <td class="fs-4"><strong>Total</strong></td>
-                          <td></td>
-                          <td class="fs-3 d-flex justify-content-center align-items-center ps-5">
-                            <span id="total-price">0</span>
-                            <span style="font-size: 20px; padding-left: 10px; color: red;">Pln</span>
-                          </td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                </div>
-                <div class="container mt-3">
-                  <div class="row d-flex justify-content-between">
-                    <div class="col-6 d-flex">
-                      <button type="button" class="btn1 btn btn-danger w-100" onclick="resetOrder()">Cancel Order</button>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                      <button type="submit" class="order w-100">Submit Order</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section class="background-section1 pt-0 " id="order">
+      <div class="triangle">
+        <p class="textSpecial">Weekend Special</p>
       </div>
+      <div class="flex pt-2 textSpecial2 ">
+        <p class=" text-center">Weekend Special</p>
+      </div>
+        
+        <div class="container" name="submit-to-google-sheet">
+          <h1 class="text-center pt-3" style="color: white;">Make your Order</h1>
+          <!-- <div class="position-relative text-center pt-3 fs-4">
+            <p class="position-absolute w-100" style="color: rgb(255, 0, 0); top: 0; left: 0; z-index: 2;">
+              We deliver within Warsaw only on Saturdays for orders of two or more sausages.
+            </p>
+            <p class="position-absolute w-100 " style="color: white; top: 2px; left: 2px; z-index: 1;">
+              We deliver within Warsaw only on Saturdays for orders of two or more sausages.
+            </p>
+          </div> -->
+          <div class="text-center py-1 d-none d-lg-block" style="background-color: #f7dbbb; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); max-width: 70%; margin: auto;">
+            <p class="fs-4" style="color: rgb(15, 15, 15); margin: 0;">
+              We deliver within Warsaw only on Saturdays for orders above 60 Pln.
+            </p>
+          </div>
+        
+          <div class="text-center mt-10 py-1 d-block d-lg-none" style="background-color: #f7dbbb; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); max-width: 70%; margin: auto;">
+            <p class="" style="color: rgb(15, 15, 15); margin: 0; font-size: medium;">
+              We deliver within Warsaw only on Saturdays for orders above 60 Pln.
+            </p>
+          </div>
+        
+        
+          <div class="row">
+            <div class="col-12 col-lg-6 pt-2">
+              <div class="card" style="background-color: transparent; border: none;">
+                <div class="card-body">
+                  <form class="custom-form">
+                    <!-- Info Icon and Tooltip -->
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="fa-solid fa-circle-exclamation fs-5 text-warning me-2" id="info-icon" style="cursor: pointer;"></i>
+                      <p id="info-message" class="text-light mb-0 d-none">
+                        The data collected is used only to contact you regarding your order.
+                      </p>
+                    </div>
+        
+        
+                    <div class="row mb-4" style="color: white;">
+                      <div class="col-md-6">
+                        <label for="firstName" class="form-label fs-4">Name</label>
+                        <input type="text" class="form-control input-field" id="firstName" name="Name" placeholder="Name" style="height: 50px;" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="lastName" class="form-label fs-4">Last Name</label>
+                        <input type="text" class="form-control input-field" id="lastName" name="Last Name" placeholder="Last name" style="height: 50px;">
+                      </div>
+                    </div>
+        
+                    <div class="row mb-5" style="color: white;">
+                      <div class="col-md-6">
+                        <label for="email" class="form-label fs-4">Email</label>
+                        <input type="email" class="form-control input-field" id="email" name="Email" placeholder="Email" style="height: 50px;" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="phone" class="form-label fs-4">Phone</label>
+                        <input type="tel" class="form-control input-field" id="phone" name="Phone" placeholder="Phone" style="height: 50px;" required>
+                      </div>
+                    </div>
+        
+                    <!-- Order Details Section -->
+                    <div class="mt-3">
+                      <p class="fs-4 mb-4" style="color: white;">Click to Add</p>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-4">
+                      <button type="button" class="btn btn-boer">Boerwors</button>
+                      <button type="button" class="btn btn-chaka">Chakalaka</button>
+                      <button type="button" class="btn btn-pork">Pork</button>
+                    </div>
+        
+                    <div class="d-flex justify-content-center align-items-center gap-4">
+                      <div id="order-details">
+                        <!-- Dynamically updated order details will be shown here -->
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Order Summary Table -->
+            <div class="col-12 col-lg-6">
+              <div class="container">
+                <div class="card bg-transparent border-0 text-white">
+                  <div class="card-body">
+                    <h2 class="text-center fs-2 pt-5">Total Order</h2>
+                    <div class="table-responsive">
+                      <table class="table text-white text-center border-0">
+                        <thead>
+                          <tr>
+                            <th class="fs-4">Item</th>
+                            <th class="fs-4">Qty</th>
+                            <th class="fs-4">Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="fs-4">Boerwors</td>
+                            <td>
+                              <div class="d-flex justify-content-center">
+                                <p id="boerwors-qty" class="fs-3 mb-0">0</p>
+                                <div>
+                                  <button class="btn2" style="color: greenyellow;" onclick="updateQty('boerwors', 1)">▲</button>
+                                  <button class="btn2" style="color: red;" onclick="updateQty('boerwors', -1)">▼</button>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="fs-3"><span id="boerwors-price">0</span></td>
+                          </tr>
+                          <tr>
+                            <td class="fs-4">Chakalaka</td>
+                            <td>
+                              <div class="d-flex justify-content-center">
+                                <p id="chakalaka-qty" class="fs-3 mb-0">0</p>
+                                <div>
+                                  <button class="btn2" style="color: greenyellow;" onclick="updateQty('chakalaka', 1)">▲</button>
+                                  <button class="btn2" style="color: red;" onclick="updateQty('chakalaka', -1)">▼</button>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="fs-3"><span id="chakalaka-price">0</span></td>
+                          </tr>
+                          <tr>
+                            <td class="fs-4">Pork</td>
+                            <td>
+                              <div class="d-flex justify-content-center">
+                                <p id="pork-qty" class="fs-3 mb-0">0</p>
+                                <div class="d-flex flex-column">
+                                  <button class="btn2" style="color: greenyellow;" onclick="updateQty('pork', 1)">▲</button>
+                                  <button class="btn2" style="color: red;" onclick="updateQty('pork', -1)">▼</button>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="fs-3"><span id="pork-price">0</span></td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <td class="fs-4"><strong>Total</strong></td>
+                            <td></td>
+                            <td class="fs-3 d-flex justify-content-center align-items-center ps-5">
+                              <span id="total-price">0</span>
+                              <span style="font-size: 20px; padding-left: 10px; color: red;">Pln</span>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="container mt-3">
+                    <div class="row d-flex justify-content-between">
+                      <div class="col-6 d-flex">
+                        <button type="button" class="btn1 btn btn-danger w-100" onclick="resetOrder()">Cancel Order</button>
+                      </div>
+                      <div class="col-6 d-flex justify-content-end">
+                        <button type="submit" class="order w-100">Submit Order</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </section>
 
     <section id="reviews">

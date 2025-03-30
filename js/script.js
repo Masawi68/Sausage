@@ -1,7 +1,7 @@
  // --- Order Submission Code (unchanged) ---
 const prices = {
-  boerwors: 25,
-  chakalaka: 25,
+  boerwors: 30,
+  chakalaka: 30,
   pork: 20
 };
 

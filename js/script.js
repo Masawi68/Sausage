@@ -45,7 +45,7 @@ const porkButton = document.querySelector(".btn-pork");
 
 boerworsButton.addEventListener("click", () => updateQty("boerwors", 1));
 chakalakaButton.addEventListener("click", () => updateQty("chakalaka", 1));
-porkButton.addEventListener("click", () => updateQty("pork", 1));
+//porkButton.addEventListener("click", () => updateQty("pork", 1));
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbzNmq2N-C4zLC3EIBAefdWNfpnEW_Z3o8GXG7SCTNDC7s8joo3cPsIkg-nZimd1acCn/exec';
 
@@ -248,9 +248,9 @@ const responses = {
   "bones": "We don't have beef bones.",
   "beef": "Sorry, we do not have beef sausage.", 
   "order": "You can place your order using the form on our site.",
-  "price": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
-  "prices": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
-  "how much": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. Pork Sausage - 20 Pln",
+  "price": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. ",
+  "prices": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. ",
+  "how much": "Our Products and Prices:<br>1. Boerwors - 30 Pln<br>2. Chakalaka - 30 Pln<br>3. ",
   "contact": "Feel free to use the contact form or call us directly on +48 734 808 360."
 };
 

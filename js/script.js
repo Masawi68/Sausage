@@ -47,7 +47,8 @@ boerworsButton.addEventListener("click", () => updateQty("boerwors", 1));
 chakalakaButton.addEventListener("click", () => updateQty("chakalaka", 1));
 //porkButton.addEventListener("click", () => updateQty("pork", 1));
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzNmq2N-C4zLC3EIBAefdWNfpnEW_Z3o8GXG7SCTNDC7s8joo3cPsIkg-nZimd1acCn/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyyqG5LLmf17yVgdbxapzDw9-BQneBW5IxndDkzp-QfkZPgGeqkVi4cqEvQweAWck45/exec';
+
 
 document.querySelector(".order").addEventListener("click", () => {
   const firstName = document.getElementById("firstName").value.trim();

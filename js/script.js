@@ -44,7 +44,7 @@ function updateQty(item, change) {
       quantities[item] += change;
     } else {
       Toastify({
-        text: `Sorry${item.charAt(0).toUpperCase() + item.slice(1)} is out of stock!`,
+        text: `Sorry ${item.charAt(0).toUpperCase() + item.slice(1)} is out of stock!`,
         duration: 3000,
         gravity: "top",
         position: "right",
